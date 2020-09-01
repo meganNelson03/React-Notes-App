@@ -40,29 +40,34 @@ export default class CreateNote extends React.Component {
         axios.post("http://localhost:5000/notes/add", newNote)
              .then(res => console.log(res.data));
 
-        window.location = "/";     
+        window.location = "/notes";     
     }
 
 
     render() {
         return (
-         <div>    
+         <div class="createNote">    
             <h2>Create New Note</h2>
              <form onSubmit={this.onSubmit}>
-                <label>Title:</label>
                 <input 
+                    placeholder="Title"
+                    className="createNoteTitle"
                     value={this.state.title}
                     onChange={this.onChangeTitle}
                     type="text" 
                     required
                 ></input>
-                <label>Content:</label>
-                <input
+                <textarea
+                    placeholder="Your thoughts..."
+                    className="createNoteContent"
                     value={this.state.content} 
                     onChange={this.onChangeContent}
-                    type="text" 
-                    required></input>
-                <button type="submit">Submit New Note</button>
+                    rows="3"
+                    required></textarea>
+                <div className="submit-button-container">
+                    <button className="btn btn-primary btn-md submit-button" type="submit">+</button>
+                </div>
+                
             </form>
           </div>
         );

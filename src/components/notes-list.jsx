@@ -2,17 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-// const Note = props => {
-    
-// };
-
 function Note(props) {
-    console.log(props);
     return (
         <div className="note">
-        <h6>Title: {props.title}</h6>
-        <p>Content: {props.content}</p>
-        <Link to={"/edit" + props._id}>edit</Link>
+            <h5 className="note-title">{props.title}</h5>
+            <hr></hr>
+            <p className="note-content">{props.content}</p>
+            <hr></hr>
+            <div className="note-link-container"><Link to={"/notes/edit/" + props.id}>edit</Link> | <a href="#" onClick={() => props.deleteNote(props.id)}>delete</a></div>
         </div>
     );
 }
@@ -21,6 +18,8 @@ function Note(props) {
 export default class NotesList extends React.Component {
     constructor(props) {
         super(props);
+
+        this.deleteNote = this.deleteNote.bind(this);
 
         this.state = {
             notes: []
@@ -35,19 +34,24 @@ export default class NotesList extends React.Component {
              .catch(err => console.log(err));
     }
 
+    deleteNote(noteID) {
+        axios.delete("http://localhost:5000/notes/" + noteID)
+            .then(res => {console.log(res.data)});
+
+        this.setState({
+            notes: this.state.notes.filter(note => note._id !== noteID)
+        });
+    }
 
     noteList() {
         return this.state.notes.map(note => {
-            console.log("Note: ");
-            console.log(note);
-            return <Note title={note.title} content={note.content} />
+            return <Note key={note._id} id={note._id} title={note.title} content={note.content} deleteNote={this.deleteNote}/>
         })
     }
 
     render() {
         return (
             <div className="notes-list">
-                <h2>Your Notes:</h2>
                 <div className="notes">
                     { this.noteList() }
                 </div>

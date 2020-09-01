@@ -1,0 +1,110 @@
+body {
+    background-color: #f6f5f5 !important;
+}
+
+/* NOTE STYLING */
+
+.note {
+    background-color: white;
+    width: 31%;
+    vertical-align: middle;
+    display: inline-block;
+    word-wrap: break-word;
+    margin: 1%;
+    padding: 2%;
+    -webkit-box-shadow: -1px 4px 21px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: -1px 4px 21px 0px rgba(0,0,0,0.4);
+    box-shadow: -1px 4px 21px 0px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    
+}
+
+.note-link-container {
+    text-align: center;
+}
+
+.note-title {
+    text-align: center;
+    
+}
+
+.note-content {
+
+}
+
+.createNote {
+    background-color: #ee6f57;
+    margin: 0 auto 2% auto;
+}
+
+.createNote h2 {
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2%;
+    
+}
+
+.createNoteContent, .createNoteTitle {
+    border-radius: 5px;
+    padding: .5%;
+    border: 1px solid #ee6f57;
+}
+
+.createNoteContent:focus, .createNoteTitle:focus {
+    outline: 2px solid #f5a99a;
+    border: 1px solid #f5a99a;
+    border-radius: 0px;
+}
+
+.createNoteTitle {
+    display: block;
+    
+    width: 50%;
+    margin: 0 auto;
+}
+
+.createNoteContent {
+    
+    display: block;
+    width: 50%;
+    margin: .5% auto 0 auto;
+}
+
+
+
+.note {
+
+}
+
+/* BUTTON */
+
+.submit-button-container {
+    position: relative;
+    width: 50%;
+    height: 50px;
+    text-align: right;
+    margin: 0 auto;
+
+}
+
+.submit-button.btn {
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    border-radius: 50%;
+    background-color: #145374;
+    border: 1px solid #145374;
+}
+
+.submit-button.btn:hover {
+    background-color: #00334e;
+    border: 1px solid #00334e;
+}
+
+.copyright {
+    color: rgba(0, 0, 0, 0.6);
+    padding-top: 5%;
+    text-align: center
+}

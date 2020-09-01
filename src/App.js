@@ -6,6 +6,7 @@ import Navbar from "./components/navbar.jsx";
 import NotesList from "./components/notes-list.jsx";
 import EditNote from "./components/edit-note.jsx";
 import CreateNote from "./components/create-note.jsx";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
       <div className="container">
         {/* <Navbar />  */}
         <br />
-        <Route path="/" exact component={NotesList} />
-        {/* <Route path="/edit/:id" component={EditNote} /> */}
-        <Route path="/create" component={CreateNote} />
+        <Route path="/notes" exact component={CreateNote} />
+        <Route path="/notes" exact component={NotesList} />
+        <Route path="/notes/edit/:id" component={EditNote} />
+        <Footer year={new Date().getFullYear()}/>    
       </div>
     </Router>
   );
